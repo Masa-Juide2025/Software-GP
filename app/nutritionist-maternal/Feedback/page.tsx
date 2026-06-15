@@ -10,6 +10,7 @@ export default function FeedbackPage() {
   const fetchFeedbacks = async () => {
     try {
       const email = localStorage.getItem("userEmail");
+      // يقرأ من الراوت الموحد الشغال لتجنب الـ 404
       const res = await fetch(`/api/trainer/feedback?email=${email}`);
       const data = await res.json();
       if (data.success) setFeedbacks(data.feedbacks);
